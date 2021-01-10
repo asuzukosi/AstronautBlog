@@ -1,0 +1,27 @@
+  <div class="article">
+      <div class="card card-20201">
+              {% load static %}
+              <img src="{% static 'images/hero_1.jpg' %}" class="card-img-top" alt="...">
+
+              <div class="card-body">
+                <div class="col-lg-3 text-center side-image">
+                  <img src="{% static 'images/hero_1.jpg' %}" alt="Image" class="img-fluid w-75 rounded img-raised">
+                </div>
+                <div>
+                <h5 class="card-title">{{post.title}}</h5>
+                    <p>
+                        Author: {{post.author}}, Date: {{post.date_written}}
+                    </p>
+
+                    <p>
+                        {% for cat in post.category.all %}
+                        <span class="badge px-3 badge-pill badge-info">{{cat.name}}</span>
+                        {% endfor %}
+                    </p>
+                <p class="card-text mb-5">{{post.content | safe }}</p>
+                <a href="{% url 'Article' post.pk %}" class="btn px-4 m-1 btn-outline-info read-more ">Read more...</a>
+                </div>
+
+              </div>
+  </div>
+  </div>

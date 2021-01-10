@@ -1,0 +1,18 @@
+<div class="tab-card p-4">
+      <div class="tab-menu tab-secondary mb-4">
+                    <div class="nav flex-row nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                        {% if current == "all" %}
+                        <a class="nav-link active" style="margin: 0px; font-size:14px;" href="?category=all">All</a>
+                        {% else%}
+                        <a class="nav-link " style="margin: 0px; font-size:14px;" href="?category=all">All</a>
+                        {% endif %}
+                         {% for category in categories %}
+                        {% if current == category.name %}
+                      <a class="nav-link active" style="margin: 0px;  font-size:14px;" href="?category={{category.name}}">{{category.name}}</a>
+                        {% else %}
+                        <a class="nav-link " style="margin: 0px;  font-size:14px;" href="?category={{category.name}}">{{category.name}}</a>
+                        {% endif %}
+                         {% endfor %}
+                    </div>
+      </div>
+</div>

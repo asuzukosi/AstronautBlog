@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>
+        {% block title %}
+        The Astronaut Blog
+        {% endblock %}
+    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700|Roboto:300,400,700&display=swap" rel="stylesheet">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'fonts/icomoon/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'css/nouislider.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-datetimepicker.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/mystyle.css' %}">
+
+  </head>
+  <body>
+
+
+  <!--The responsive navigation bar begins-->
+   <nav class=" px-4 navbar navbar-expand-lg navbar-dark bg-secondary mb-4 my-nav">
+          <a class="navbar-brand" href="#">The Astronaut</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown4" aria-controls="navbarNavDropdown4" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown4">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'Home' %}"><span>Home</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'Posts' %}" aria-disabled="true"><span>Posts</span></a>
+              </li>
+                 <li class="nav-item">
+                <a class="nav-link" href="{% url 'Series' %}" aria-disabled="true"><span>Series</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'About' %}"><span>About</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'Contact' %}"><span>Contact</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'Store' %}" aria-disabled="true"><span>Store</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" data-toggle="modal" data-target="#exampleModalCenter" aria-disabled="true"><span>User</span></a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+  <!--The responsive navigation bar ends -->
+
+
+   <!--Content begins-->
+        {% block content %}
+
+        {% endblock %}
+   <!--Content ends-->
+
+    <!--The Footer begins-->
+      <div class="space">
+
+      </div>
+      <div class="container  footer">
+        <div class="row justify-content-center text-center">
+          <div class="col-md-7">
+            <p>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            </p>
+          </div>
+        </div>
+      </div>
+  <!--The Footer ends-->
+
+  <!-- Modal body begins -->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content rounded-0">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">You need to login first</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true"><span class="icon-close2"></span></span>
+            </button>
+          </div>
+                <div class="tab-card p-4">
+                  <div class="tab-menu tab-secondary mb-4">
+                    <div class="nav flex-row nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                      <a class="nav-link active"  data-toggle="pill" href="#v-pills-login" role="tab" aria-controls="v-pills-profile" aria-selected="false">Login</a>
+                      <a class="nav-link"  data-toggle="pill" href="#v-pills-signup" role="tab" aria-controls="v-pills-signup" aria-selected="false">Sign-up</a>
+
+                    </div>
+                  </div>
+                  <div class="tab-content" id="v-pills-tabContent">
+                    <div class="tab-pane show active" id="v-pills-login" role="tabpanel" aria-labelledby="v-pills-login-tab">
+                      <h5>Login</h5>
+                        <form action="">
+                            <input type="email" style="width:80%; margin:2%;" class="form-control border-right-0" placeholder="Email address" aria-label="Email address" aria-describedby="basic-addon1">
+                            <input type="password" style="width:80%; margin:2%;" class="form-control border-right-0" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
+                            <button type="button" class="btn px-4 m-1 btn-outline-info">Login</button>
+                        </form>
+
+                    </div>
+                    <div class="tab-pane fade" id="v-pills-signup" role="tabpanel" aria-labelledby="v-pills-signup-tab">
+                        <h5>Sign Up</h5>
+                        <form action="">
+                            <input type="text" style="width:80%; margin:2%;" class="form-control border-right-0" placeholder="First Name" aria-label="First Name" aria-describedby="basic-addon1">
+                            <input type="email" style="width:80%; margin:2%;" class="form-control border-right-0" placeholder="Last Name" aria-label="Last Name" aria-describedby="basic-addon1">
+                            <input type="email" style="width:80%; margin:2%;" class="form-control border-right-0" placeholder="Email address" aria-label="Email address" aria-describedby="basic-addon1">
+                            <input type="password" style="width:80%; margin:2%;" class="form-control border-right-0" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
+                            <button type="button" class="btn px-4 m-1 btn-outline-info">Login</button>
+                        </form>
+                    </div>
+
+                  </div>
+                </div>
+          </div>
+        </div>
+      </div>
+
+<!-- Modal body ends -->
+
+
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/moments.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap-datetimepicker.js' %}"></script>
+    <script src="{% static 'js/nouislider.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <span style="color:grey;">Categories</span>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    {% if current == "all" %}
+                    <a class="dropdown-item active" href="{% url 'Posts' %}">all</a>
+                    {% else %}
+                    <a class="dropdown-item " href="{% url 'Posts' %}">all</a>
+                    {% endif %}
+                    {% for category in categories %}
+                    {% if current == category.name%}
+                    <a class="dropdown-item active" href="?category={{category.name}}">{{category.name}}</a>
+                    {% else %}
+                    <a class="dropdown-item " href="?category={{category.name}}">{{category.name}}</a>
+                    {% endif %}
+                    {% endfor %}
+
+                </div>

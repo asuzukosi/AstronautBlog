@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% block content%}
+
+<h4 class="article-header">{{post.title}}
+<p class="article-date">
+    {{post.date_written}}
+</p>
+</h4>
+
+<div  class="article-content">
+    <p>
+        {{post.content | safe}}
+    </p>
+    <p>
+        Published  by {{post.author}}
+    </p>
+    <button type="button"  data-toggle="modal" data-target="#exampleModalCenter" class="btn px-4 m-1 btn-success">Like</button>
+    <button type="button" class="btn px-4 m-1 btn-secondary">Save</button>
+    <button type="button" class="btn px-4 m-1 btn-danger">Unlike</button>
+    <button type="button" class="btn px-4 m-1 btn-dark">Unsave</button>
+
+</div>
+<h5 class="article-header">comments</h5>
+<hr style="width:90%; margin-left:5%;">
+<div class="article-content">
+    {% for comment in post.get_comments %}
+    <p class="article-date">{{comment.subscriber}}, {{comment.date_written}}</p>
+    <p>{{comment.text}}</p>
+    <hr style="width:95%">
+    {% endfor %}
+    <form action="">
+        <div style="margin-left:2%;">
+            <textarea name="" id="" cols="30" rows="5"></textarea>
+        </div>
+        <div style="margin-left:2%;">
+            <button type="button" class="btn px-4 m-1 btn-secondary">Add comment</button>
+        </div>
+
+    </form>
+</div>
+<br>
+
+
+
+<h4 class="article-header">Next Post</h4>
+    {% include 'article_card.html' with post=next_post %}
+<h4 class="article-header">Related Posts</h4>
+
+     {% for post in related_posts %}
+         {% include 'article_card.html' with post=post %}
+     {% endfor %}
+
+<!-- Modal body begins -->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content rounded-0">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">You need to login first</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true"><span class="icon-close2"></span></span>
+            </button>
+          </div>
+                <div class="tab-card p-4">
+                  <div class="tab-menu tab-secondary mb-4">
+                    <div class="nav flex-row nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                      <a class="nav-link active"  data-toggle="pill" href="#v-pills-login" role="tab" aria-controls="v-pills-profile" aria-selected="false">Login</a>
+                      <a class="nav-link"  data-toggle="pill" href="#v-pills-signup" role="tab" aria-controls="v-pills-signup" aria-selected="false">Sign-up</a>
+
+                    </div>
+                  </div>
+                  <div class="tab-content" id="v-pills-tabContent">
+                    <div class="tab-pane show active" id="v-pills-login" role="tabpanel" aria-labelledby="v-pills-login-tab">
+                      <h5>Login</h5>
+                        <form action="">
+                            <input type="email" style="width:80%; margin:2%;" class="form-control border-right-0" placeholder="Email address" aria-label="Email address" aria-describedby="basic-addon1">
+                            <input type="password" style="width:80%; margin:2%;" class="form-control border-right-0" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
+                            <button type="button" class="btn px-4 m-1 btn-outline-info">Login</button>
+                        </form>
+
+                    </div>
+                    <div class="tab-pane fade" id="v-pills-signup" role="tabpanel" aria-labelledby="v-pills-signup-tab">
+                        <h5>Sign Up</h5>
+                        <form action="">
+                            <input type="text" style="width:80%; margin:2%;" class="form-control border-right-0" placeholder="First Name" aria-label="First Name" aria-describedby="basic-addon1">
+                            <input type="email" style="width:80%; margin:2%;" class="form-control border-right-0" placeholder="Last Name" aria-label="Last Name" aria-describedby="basic-addon1">
+                            <input type="email" style="width:80%; margin:2%;" class="form-control border-right-0" placeholder="Email address" aria-label="Email address" aria-describedby="basic-addon1">
+                            <input type="password" style="width:80%; margin:2%;" class="form-control border-right-0" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
+                            <button type="button" class="btn px-4 m-1 btn-outline-info">Login</button>
+                        </form>
+                    </div>
+
+                  </div>
+                </div>
+          </div>
+        </div>
+      </div>
+
+<!-- Modal body ends -->
+{% endblock content%}

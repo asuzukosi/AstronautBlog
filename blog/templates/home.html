@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content%}
+<div class="carousel">
+  {% include 'carousel.html' %}
+</div>
+
+<div class="loader">
+  {% include 'loader.html' %}
+</div>
+
+    {% for post in object_list%}
+    {% include 'article_card.html' with post=post%}
+    {% endfor %}
+
+
+{% endblock content%}
