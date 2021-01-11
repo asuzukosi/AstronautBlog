@@ -14,6 +14,10 @@
     <p>
         Published  by {{post.author}}
     </p>
+        <a class="btn px-4 m-1 btn-info"
+        href="https://twitter.com/intent/tweet?text={{tweet | urlencode }}"> Share Tweet</a>
+    <br>
+    <br>
     <button type="button"  data-toggle="modal" data-target="#exampleModalCenter" class="btn px-4 m-1 btn-success">Like</button>
     <button type="button" class="btn px-4 m-1 btn-secondary">Save</button>
     <button type="button" class="btn px-4 m-1 btn-danger">Unlike</button>
@@ -37,6 +41,7 @@
         </div>
 
     </form>
+
 </div>
 <br>
 

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, reverse
 from django.http import HttpResponse
 from django.core.paginator import Paginator
 from .models import Post, Author, Series, Subscriber, Comment, Category, Likes, Save
@@ -31,7 +31,13 @@ def article(request, post_pk):
     context = {
         "post": p,
         "next_post": p.get_next_post(),
-        "related_posts": p.get_related_posts()
+        "related_posts": p.get_related_posts(),
+        "tweet": f'''    🚀‍🚀The Astronaut blog ‍🚀🚀
+********************************************
+📰 {p.title} 
+********************************************
+written by: ✍️{p.author}  read now: http://127.0.0.1:8000{ reverse('Article', kwargs={"post_pk":p.pk})}''',
+
     }
     return render(request, 'article.html', context)
 
